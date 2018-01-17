@@ -35,12 +35,13 @@ class UsuarioController extends Controller {
     public function store(UsuarioFormRequest $request) {
         $usuario = new User;
         $usuario->cedula = $request->get('cedula');
+        $usuario->id_tipoUsu = $request->get('tipo');
         $usuario->name = $request->get('name');
         $usuario->fechaNac = $request->get('fechaNac');
-        $usuario->ciudadNa = $request->get('ciudadNa');
+        $usuario->ciudadNac = $request->get('ciudadNac');
         $usuario->direccion = $request->get('direccion');
         $usuario->telefono = $request->get('telefono');
-        $usuario->tipo = $request->get('tipo');
+        $usuario->estado = $request->get('estado');
         $usuario->email = $request->get('email');
         $usuario->password = bcrypt($request->get('password'));
         $usuario->save();

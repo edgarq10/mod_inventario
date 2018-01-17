@@ -20,6 +20,13 @@
             <input type="text" name="cedula" class="form-control" placeholder="Cédula">
         </div>
         <div class="form-group">
+            <label for="tipo">Seleccione el Tipo de Usuario</label>
+            <select class="form-control " id="tipo" name="tipo">
+                <option value="1">Administrador</option>
+                <option value="2">Bodeguero</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="name">Nombres y Apellidos</label>
             <input type="text" name="name" class="form-control" placeholder="Escriba sus Nombres y Apellidos">
         </div>
@@ -40,14 +47,12 @@
             <input type="tel" name="telefono" class="form-control" placeholder="Escriba su número de teléfono">
         </div>
         <div class="form-group">
-
-            <select class="form-control " id="tipo" name="tipo">
-                <option value="1">A</option>
-                <option value="2">Inactivo</option>
+            <label for="estado">Seleccione el estado</label>
+            <select class="form-control " id="estado" name="estado">
+                <option value="A">Activo</option>
+                <option value="I">Inactivo</option>
 
             </select>
-
-            
         </div>
 
         <div class="form-group">
