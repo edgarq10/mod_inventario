@@ -11,8 +11,8 @@ use DB;
 
 class ProductoController extends Controller {
 
-    public function __construct() {
-        
+     public function __construct() {
+        $this->middleware('auth');
     }
 
     public function index(Request $request) {
@@ -20,7 +20,7 @@ class ProductoController extends Controller {
             $query = trim($request->get('searchText'));
             $productos = DB::table('productos')->where('nombre_pro', 'LIKE', '%' . $query . '%')
                     ->orderBy('id_pro', 'desc')
-                    ->paginate(7);
+                    ->paginate(3);
             return view('inventario.producto.index', ["productos" => $productos,
                 "searchText" => $query]);
 //            

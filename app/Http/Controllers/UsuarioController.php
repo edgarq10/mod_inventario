@@ -12,11 +12,11 @@ use DB;
 class UsuarioController extends Controller {
 
     public function __construct() {
-        
+        $this->middleware('auth');
     }
 
     public function index(Request $request) {
-//        return view('inventario.usuario.index');
+
         if ($request) {
             $query = trim($request->get('searchText'));
             $usuarios = DB::table('users')->where('name', 'LIKE', '%' . $query . '%')
