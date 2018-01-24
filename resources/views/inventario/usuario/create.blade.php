@@ -1,24 +1,26 @@
 @extends ('layouts.admin')
 @section ('contenido')
-<!--<div class="row">-->
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <h3>Nuevo Usuario</h3>
-    @if (count($errors)>0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-</div>
+
+  
+        <h3>Nuevo Usuario</h3>
+        <p id="resultados_ajax" class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></p>
+        @if (count($errors)>0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+  
 @endif
 {!!Form::open(array('url'=>'inventario/usuario','method'=>'POST','autocomplete'=>'off'))!!}
 {{Form::token()}}
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <div class="row">
-    <div class="col-lg-5 col-sm-6 col-md-5 col-sx-12">
+    <div class="col-lg-4 col-sm-5 col-md-4 col-sx-12">
         <div class="form-group">
-            <label for="tipo_id">Seleccione el tipo de indentificación</label>
+            <label for="tipo_id">Tipo de indentificación</label>
             <select class="form-control " id="tipo_id"  name="tipo_id">
                 <option value="1">Cédula</option>
                 <option value="2">R.U.C</option>
@@ -26,10 +28,18 @@
             </select>
         </div>
     </div>
-    <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
+    <div class="col-lg-3 col-sm-4 col-md-3 col-sx-12">
         <div class="form-group">
             <label for="cedula">CI/RUC/Pasaporte</label>
-            <input type="text" name="cedula" class="form-control" required value="{{old('cedula')}}" onkeypress="return esDigito()" maxlength="13" minlength="10" placeholder="Cédula">
+            <input type="text" name="cedula" class="form-control" id="cedula" required value="{{old('cedula')}}"  onkeypress="return esDigito()" maxlength="13" minlength="10" placeholder="Cédula">
+
+        </div>
+    </div>
+    <div class="col-lg-2 col-sm-3 col-md-2 col-sx-12">
+        <div class="form-group">
+            <label>Clic para validar ID</label>
+            <button type="button" class="btn btn-default form-control" onclick="checkCedula()">Validar</button>
+
         </div>
     </div>
 </div>
@@ -91,15 +101,15 @@
     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             <label for="password" class="col-md-4 control-label">Contraseña</label>
-            
-                <input id="password" type="password" class="form-control" name="password" required>
 
-                @if ($errors->has('password'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
-                @endif
-          
+            <input id="password" type="password" class="form-control" name="password" required>
+
+            @if ($errors->has('password'))
+            <span class="help-block">
+                <strong>{{ $errors->first('password') }}</strong>
+            </span>
+            @endif
+
         </div>
     </div>
 </div>
@@ -119,12 +129,12 @@
     <div class="col-lg-5 col-sm-6 col-md-5 col-sx-12">
         <div class="form-group">
             <label for="estado"></label>
-            <button class="btn btn-primary" type="submit">Guardar</button>
+            <button class="btn btn-primary" disabled="" id="guardar_datos" type="submit">Guardar</button>
             <button class="btn btn-danger" type="reset">Cancelar</button>
         </div>
     </div>
     {!!Form::close()!!}		
 </div>
-
+</div>
 @endsection
 

@@ -1,118 +1,129 @@
 function checkCedula() {
     var cedula = document.getElementById('cedula').value;
-    var tipoid = $("#tipoID").val();
+    var tipoid = $("#tipo_id").val();
     if (tipoid == 1) {
-        $('#razon_social').attr('readonly', true);
-        var cedulaValida = ValidarC(cedula + "");
-        if (!cedulaValida) {
-            $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Cédula Inválida, Intente nuevamente.</div>");
+    $('#razon_social').attr('readonly', true);
+            var cedulaValida = ValidarC(cedula + "");
+            if (!cedulaValida) {
+    $("#resultados_ajax").html("<div class='alert alert-danger' >\n\
+<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Cédula Inválida, Intente nuevamente.</div>");
 //            $("#estado").text("Cédula inválida").removeClass("text-success").addClass("text-danger");
             $("#cedula").focus();
             $('#guardar_datos').attr("disabled", true);
             return false;
-        } else {
-            $.ajax({
-                url: 'ajax/verificarCedulaExistente.php',
-                type: 'POST',
-                async: true,
-                data: {cedula: cedula},
-//  data: 'parametro1=valor1&parametro2=valor2',
-                success: function (datos) {
-                    if (datos == 1) {
-                        $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i>Número de cédula aceptado con éxito.</div>");
-                       $("#nombres").focus();
-                        $('#guardar_datos').attr("disabled", false);
-                        
-                    } else if (datos == 0) {
-                        $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Este N° de cédula ya existe.</div>");
-                        $('#guardar_datos').attr("disabled", true);
-                       $("#cedula").focus();
-                        return false;
-                    }
-                }
-            });
-        }
+    } else {
+//            $.ajax({
+//                url: 'ajax/verificarCedulaExistente.php',
+//                type: 'POST',
+//                async: true,
+//                data: {cedula: cedula},
+////  data: 'parametro1=valor1&parametro2=valor2',
+//                success: function (datos) {
+//                    if (datos == 1) {
+//                        $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i>Número de cédula aceptado con éxito.</div>");
+//                       $("#nombres").focus();
+//                        $('#guardar_datos').attr("disabled", false);
+//                        
+//                    } else if (datos == 0) {
+//                        $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Este N° de cédula ya existe.</div>");
+//                        $('#guardar_datos').attr("disabled", true);
+//                       $("#cedula").focus();
+//                        return false;
+//                    }
+//                }
+//            });
+    $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i>Número de cédula aceptado con éxito.</div>");
+            $("#nombres").focus();
+            $('#guardar_datos').attr("disabled", false);
+    }
     } else if (tipoid == 2) {
-        $('#razon_social').attr('readonly', false);
-        var rucValido = validarRUC(cedula);
-        if (!rucValido) {
-            $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>R.U.C Inválido, Intente nuevamente.</div>");
+    $('#razon_social').attr('readonly', false);
+            var rucValido = validarRUC(cedula);
+            if (!rucValido) {
+    $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>R.U.C Inválido, Intente nuevamente.</div>");
             $('#guardar_datos').attr("disabled", true);
             $("#cedula").focus();
             return false;
-        } else {
-            $.ajax({
-                url: 'ajax/verificarCedulaExistente.php',
-                type: 'POST',
-                async: true,
-                data: {cedula: cedula},
-
-                success: function (datos) {
-                    if (datos == 1) {
-                        $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i> R.U.C aceptado con éxito.</div>");
-                        $('#guardar_datos').attr("disabled", false);
-                         $("#nombres").focus();
-//          
-                    } else if (datos == 0) {
-                        $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Este N° de R.U.C ya existe.</div>");
-                        $('#guardar_datos').attr("disabled", true);
-                        $("#cedula").focus();
-                        return false;
-                    }
-                }
-            });
-        }
+    } else {
+//            $.ajax({
+//                url: 'ajax/verificarCedulaExistente.php',
+//                type: 'POST',
+//                async: true,
+//                data: {cedula: cedula},
+//
+//                success: function (datos) {
+//                    if (datos == 1) {
+//                        $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i> R.U.C aceptado con éxito.</div>");
+//                        $('#guardar_datos').attr("disabled", false);
+//                         $("#nombres").focus();
+////          
+//                    } else if (datos == 0) {
+//                        $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Este N° de R.U.C ya existe.</div>");
+//                        $('#guardar_datos').attr("disabled", true);
+//                        $("#cedula").focus();
+//                        return false;
+//                    }
+//                }
+//            });
+    $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i> R.U.C aceptado con éxito.</div>");
+            $('#guardar_datos').attr("disabled", false);
+            $("#nombres").focus();
+    }
 
     } else if (tipoid == 3) {
-        var pasaporteValido = ValidarP(cedula);
-        $('#razon_social').attr('readonly', true);
-        if (!pasaporteValido) {
-            $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Pasaporte Inválido, Intente nuevamente.</div>");
+    var pasaporteValido = ValidarP(cedula);
+            $('#razon_social').attr('readonly', true);
+            if (!pasaporteValido) {
+    $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Pasaporte Inválido, Intente nuevamente.</div>");
             $('#guardar_datos').attr("disabled", true);
-             $("#cedula").focus();
+            $("#cedula").focus();
             return false;
-        } else {
-            $.ajax({
-                url: 'ajax/verificarCedulaExistente.php',
-                type: 'POST',
-                async: true,
-                data: {cedula: cedula},
-                success: function (datos) {
-                    if (datos == 1) {
-                        $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i>Pasaporte correcto.</div>");
-                        $('#guardar_datos').attr("disabled", false);
-                         $("#nombres").focus();
-                    } else if (datos == 0) {
-                        $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Existe un cliente registrado con ese pasaporte.</div>");
-                        $('#guardar_datos').attr("disabled", true);
-                          $("#cedula").focus();
-                        return false;
-                    }
-                }
-            });
-        }
+    } else {
 
-    } else if (tipoid == 4) {
-        $('#razon_social').attr('readonly', true);
-        $.ajax({
-            url: 'ajax/verificarCedulaExistente.php',
-            type: 'POST',
-            async: true,
-            data: {cedula: cedula},
-            success: function (datos) {
-                if (datos == 1) {
-                    $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i>Correcto.</div>");
-                    $("#nombres").focus();
-                    $('#guardar_datos').attr("disabled", false);
-                } else if (datos == 0) {
-                    $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Existe un registro con estos datos</div>");
-                     $("#cedula").focus();                   
-                    $('#guardar_datos').attr("disabled", true);
-                    return false;
-                }
-            }
-        });
+//        }$.ajax({
+//                url: 'ajax/verificarCedulaExistente.php',
+//                type: 'POST',
+//                async: true,
+//                data: {cedula: cedula},
+//                success: function (datos) {
+//                    if (datos == 1) {
+//                        $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i>Pasaporte correcto.</div>");
+//                        $('#guardar_datos').attr("disabled", false);
+//                         $("#nombres").focus();
+//                    } else if (datos == 0) {
+//                        $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Existe un cliente registrado con ese pasaporte.</div>");
+//                        $('#guardar_datos').attr("disabled", true);
+//                          $("#cedula").focus();
+//                        return false;
+//                    }
+//                }
+//            });
+    $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i>Pasaporte correcto.</div>");
+            $('#guardar_datos').attr("disabled", false);
+            $("#nombres").focus();
     }
+    } 
+//    else if (tipoid == 4) {
+//    $('#razon_social').attr('readonly', true);
+//    $.ajax({
+//    url: 'ajax/verificarCedulaExistente.php',
+//            type: 'POST',
+//            async: true,
+//            data: {cedula: cedula},
+//            success: function (datos) {
+//            if (datos == 1) {
+//            $("#resultados_ajax").html("<div class='alert alert-success'><i class='fa fa-check' aria-hidden='true'></i>Correcto.</div>");
+//                    $("#nombres").focus();
+//                    $('#guardar_datos').attr("disabled", false);
+//            } else if (datos == 0) {
+//            $("#resultados_ajax").html("<div class='alert alert-danger'><i class='fa fa-times-circle' aria-hidden='true'>¡Error!</i>Existe un registro con estos datos</div>");
+//                    $("#cedula").focus();
+//                    $('#guardar_datos').attr("disabled", true);
+//                    return false;
+//            }
+//            }
+//    });
+//    }
 }
 
 

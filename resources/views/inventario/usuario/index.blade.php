@@ -2,7 +2,7 @@
 @section ('contenido')
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-        <h3>Listado de Usuarios<a href="create"><button class="btn btn-success">Nuevo</button></a></h3>
+        <h3>Listado de Usuarios<a href="{{url('inventario/usuario/create')}}"><button class="btn btn-success">Nuevo</button></a></h3>
 
         @include('inventario.usuario.search')
     </div>
@@ -34,9 +34,11 @@
                 }
 
                 if ($usu->estado == "A") {
-                    $estado = "Activo";
+                    $estado = "A";
+                    $titleEstado="Activo";
                 } else if ($usu->estado == "I") {
-                    $estado = "Inactivo";
+                    $estado = "I";
+                     $titleEstado="Inactivo";
                 }
                 ?>
                 <tr>
@@ -48,7 +50,7 @@
                     <td>{{ $usu->ciudadNac}}</td>
                     <td>{{ $usu->direccion}}</td>
                     <td>{{ $usu->telefono}}</td>
-                    <td><?php echo $estado; ?></td>
+                    <td title="<?php echo $titleEstado;?>"><?php echo $estado; ?></td>
                     <td>{{ $usu->email}}</td>
                     <td>
 <!--                        <div class="dropdown">
