@@ -26,17 +26,17 @@
             {!!Form::open(array('url'=>'inventario/producto','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
             <div class="form-group">
-                <label for="codigo_pro">Codigo Pro</label>
-                <input type="text" name="codigo_pro" class="form-control" placeholder="Nombre del producto...">
+                <label for="codigo_pro">Código Pro</label>
+                <input type="text" name="codigo_pro" class="form-control" value="{{old('codigo_pro')}}" maxlength="8" minlength="8" placeholder="Código del producto...">
             </div>
             <div class="form-group">
                 <label for="nombre_pro">Nombre Producto</label>
-                <input type="text" name="nombre_pro" class="form-control"  placeholder="Nombre Producto...">
+                <input type="text" name="nombre_pro" class="form-control"  value="{{old('nombre_pro')}}" required="" maxlength="50" placeholder="Nombre Producto...">
             </div>
 
             <div class="form-group">
-                <label for="descripcion_pro">Descripcion</label>
-                <input type="text" name="descripcion_pro" class="form-control" placeholder="Descripcion Producto...">
+                <label for="descripcion_pro">Descripción</label>
+                <input type="text" name="descripcion_pro" class="form-control"  value="{{old('descripcion_pro')}}" placeholder="Descripción Producto...">
             </div>
             <div class="form-group">
                 <label for="iva_pro">Iva</label>
@@ -47,11 +47,11 @@
             </div>
             <div class="form-group">
                 <label for="costo_pro">Costo</label>
-                <input type="text" name="costo_pro" class="form-control" onkeypress="return esMoney();" placeholder="Costo Producto...">
+                <input type="text" name="costo_pro" class="form-control" required="true" value="{{old('costo_pro')}}" onkeypress="return esMoney();" placeholder="Costo Producto...">
             </div>
             <div class="form-group">
                 <label for="pvp_pro">PVP</label>
-                <input type="text" name="pvp_pro" class="form-control" onkeypress="return esMoney();" placeholder="PVP Producto...">
+                <input type="text" name="pvp_pro" class="form-control"  required="true" value="{{old('pvp_pro')}}" onkeypress="return esMoney();" placeholder="PVP Producto...">
             </div>
             <div class="form-group">
                 <label for="estado_pro">Estado</label>

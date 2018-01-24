@@ -6,8 +6,8 @@
     <div class="panel panel-info">
         <div class="panel-heading">
             <div class="btn-group pull-right">
-                <a href="{{url('inventario/usuario/create')}}"> <button class="btn btn-success"> <i class="fa fa-user-plus"> Nuevo Usuario</i></button></a></div>
-            <h4><i class='fa fa-user'></i> Lista  de Usuarios</h4>
+                <a href="{{url('inventario/usuario/create')}}"> <button class="btn btn-success"> <i class="fa fa-user-plus"> Nuevo Bodeguero</i></button></a></div>
+            <h4><i class='fa fa-user'></i> Lista  de Bodegueros</h4>
         </div>
         <div class="panel-body">
             <div class="row">
@@ -15,9 +15,6 @@
                     @include('inventario.usuario.search')
                 </div>
             </div>
-
-
-            
 
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -45,10 +42,10 @@
                             }
 
                             if ($usu->estado == "A") {
-                                $estado = "A";
+                                $estado = "Activo";
                                 $titleEstado = "Activo";
                             } else if ($usu->estado == "I") {
-                                $estado = "I";
+                                $estado = "Inactivo";
                                 $titleEstado = "Inactivo";
                             }
                             ?>
@@ -84,9 +81,17 @@
                     </div>
                     {{$usuarios->render()}}
                 </div>
-            </div>
+            </div> 
+
+
         </div>
     </div>
 </div>
+
+
+
+
+
+
 
 @endsection

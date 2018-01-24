@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::resource('inventario/usuario','UsuarioController');
 Route::resource('inventario/producto','ProductoController');
+Route::resource('inventario/bodeguero','BodegueroController');
 
 Auth::routes();
 

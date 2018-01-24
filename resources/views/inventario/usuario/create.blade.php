@@ -54,7 +54,7 @@
         <div class="form-group">
             <label for="tipo">Tipo de Usuario</label>
             <select class="form-control " id="tipo"  name="tipo">
-                <option value="">Seleccione una opcion</option>
+                <option value="">Seleccione una opción</option>
                 <option value="1">Administrador</option>
                 <option value="2">Bodeguero</option>
             </select>
@@ -87,7 +87,7 @@
     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
         <div class="form-group">
             <label for="telefono">Teléfono</label>
-            <input type="tel" name="telefono" class="form-control" required value="{{old('telefono')}}" onkeypress="return esDigito()" maxlength="7" minlength="10" placeholder="Escriba su número de teléfono">
+            <input type="tel" name="telefono" class="form-control" required value="{{old('telefono')}}" onkeypress="return esDigito()" maxlength="10" minlength="7" placeholder="Escriba su número de teléfono">
         </div>
     </div>
 </div>

@@ -28,10 +28,13 @@
             <label for="descripcion_pro">Descripcion</label>
             <input type="text" name="descripcion_pro" class="form-control"  value="{{ $producto->descripcion_pro}}" placeholder="Descripcion Producto...">
         </div>
-        <div class="form-group">
-            <label for="iva_pro">Iva</label>
-            <input type="text" name="iva_pro" class="form-control" value="{{ $producto->iva_pro}}" placeholder="IVA Producto...">
-        </div>
+       <div class="form-group">
+                <label for="iva_pro">Iva</label>
+                <select class="form-control "  id="iva_pro" required="" name="iva_pro">
+                    <option value="1">Si</option>
+                    <option value="2">No</option>
+                </select>
+            </div>
         <div class="form-group">
             <label for="costo_pro">Costo</label>
             <input type="text" name="costo_pro" class="form-control" value="{{ $producto->costo_pro}}"placeholder="Costo Producto...">
@@ -40,10 +43,13 @@
             <label for="pvp_pro">PVP</label>
             <input type="text" name="pvp_pro" class="form-control" value="{{ $producto->pvp_pro}}"placeholder="PVP Producto...">
         </div>
-        <div class="form-group">
-            <label for="estado_pro">Estado</label>
-            <input type="text" name="estado_pro" class="form-control" value="{{ $producto->estado_pro}}" placeholder="Estado Producto...">
-        </div>
+      <div class="form-group">
+                <label for="estado_pro">Estado</label>
+                <select class="form-control "  id="estado_pro" required="" name="estado_pro">
+                    <option value="A">Activo</option>
+                    <option value="I">Inactivo</option>
+                </select>
+            </div>
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Guardar</button>
             <button class="btn btn-danger" type="reset">Cancelar</button>

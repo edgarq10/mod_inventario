@@ -27,10 +27,10 @@ class ProductoFormRequest extends FormRequest
             
             'codigo_pro' => 'required|max:8',
             'nombre_pro' => 'required|string|max:50',
-            'descripcion_pro' => 'required|string|max:150',
+            'descripcion_pro' => 'max:150',
             'iva_pro' => 'string|required|max:1',
-            'costo_pro' => 'required|numeric',
-            'pvp_pro' => 'required|numeric',
+            'costo_pro' => 'required',
+            'pvp_pro' => 'required',
             'estado_pro' => 'required|max:1',
             
      
