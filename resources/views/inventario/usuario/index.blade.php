@@ -11,7 +11,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class=" col-md-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <div class=" col-o col-md-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     @include('inventario.usuario.search')
                 </div>
             </div>
