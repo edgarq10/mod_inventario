@@ -121,7 +121,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Ajuste de producto</a></li>
+                                <li><a href="{{url('inventario/ajuste')}}"><i class="fa fa-circle-o"></i> Nuevo Ajuste</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
