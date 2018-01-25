@@ -52,7 +52,8 @@
             </div>
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Guardar</button>
-            <button class="btn btn-danger" type="reset">Cancelar</button>
+            
+            <a href="{{url('inventario/producto')}}" class="btn btn-danger">Cancelar</a>
         </div>
 
         {!!Form::close()!!}		
