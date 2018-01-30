@@ -107,9 +107,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{url('inventario/usuario')}}"><i class="fa fa-circle-o"></i> Administracion Usuarios</a></li>
-                                <li><a href="{{url('inventario/producto')}}"><i class="fa fa-circle-o"></i> Administracion Productos</a></li>
-                                <li><a href="{{url('inventario/bodeguero')}}"><i class="fa fa-circle-o"></i> Administracion Bodegueros</a></li>                                                                                                        goria"><i class="fa                                                                                                         fa-circle-o"></i> Administracio                                                                                                        n Productos</a></li>
+                                <li><a href="{{url('inventario/usuario')}}"><i class="fa fa-circle-o"></i> Administración Usuarios</a></li>
+                                <li><a href="{{url('inventario/producto')}}"><i class="fa fa-circle-o"></i> Administración Productos</a></li>
+                                <li><a href="{{url('inventario/bodeguero')}}"><i class="fa fa-circle-o"></i> Administración Bodegueros</a></li>                                                                                                        goria"><i class="fa                                                                                                         fa-circle-o"></i> Administracio                                                                                                        n Productos</a></li>
 
                             </ul>
                         </li>
@@ -117,16 +117,17 @@
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-th"></i>
-                                <span>Gestion</span>
+                                <span>Gestión</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
+                                <li><a href="{{url('inventario/ajuste')}}"><i class="fa fa-circle-o"></i> Lista de Ajuste</a></li>
                                 <li><a href="{{url('inventario/ajuste')}}"><i class="fa fa-circle-o"></i> Nuevo Ajuste</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-shopping-cart"></i>
+                                <i class="fa fa fa-bar-chart"></i>
                                 <span>Reportes</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -183,6 +184,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <!--Contenido-->
+                                            
                                             @yield('contenido')
                                             <!--Fin Contenido-->
                                         </div>

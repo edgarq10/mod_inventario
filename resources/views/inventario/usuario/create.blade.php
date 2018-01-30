@@ -1,21 +1,14 @@
 @extends ('layouts.admin')
 @section ('contenido')
-
+<div class="container-fluid">
 <ul class="breadcrumb">
     <li><a href="#">Inicio</a></li>
     <li><a href="{{url('inventario/usuario')}}">Usuarios</a></li>
     <li class="active">Nuevo usuario</li>
 </ul>
-<div class="container-fluid">
-    <div class="panel panel-info">
-        <div class="panel-heading">
 
-            <h4><i class='fa fa-user-plus'></i> Nuevo Usuario</h4>
-
-        </div>
-        <div class="panel-body">
-
-            <p id="resultados_ajax" class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></p>
+    <div class="row">
+        <p id="resultados_ajax" class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></p>
             @if (count($errors)>0)
             <div class="alert alert-danger">
                 <ul>
@@ -24,8 +17,13 @@
                     @endforeach
                 </ul>
             </div>
-
             @endif
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4><i class='fa fa-user-plus'></i> Nuevo Usuario</h4>
+        </div>
+        <div class="panel-body">
             {!!Form::open(array('url'=>'inventario/usuario','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -49,7 +47,7 @@
                     </div>
                     <div class="col-lg-2 col-sm-3 col-md-2 col-sx-12">
                         <div class="form-group">
-                            <label>Clic para validar ID</label>
+                            <label>Validar ID</label>
                             <button type="button" class="btn btn-default form-control" onclick="checkCedula()">Validar</button>
 
                         </div>
