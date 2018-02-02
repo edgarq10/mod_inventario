@@ -25,8 +25,9 @@ class ProductoFormRequest extends FormRequest
     {
         return [
             
-            'codigo_pro' => 'required|max:8',
+            
             'nombre_pro' => 'required|string|max:50',
+            'u_medida'=>'max:1|integer|required|',
             'descripcion_pro' => 'max:150',
             'iva_pro' => 'string|required|max:1',
             'costo_pro' => 'required',

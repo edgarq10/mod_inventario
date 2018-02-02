@@ -3,6 +3,7 @@
 namespace mod_inventario\Http\Middleware;
 
 use Closure;
+use Session;
 
 class MDbodeguero
 {
@@ -17,7 +18,9 @@ class MDbodeguero
     {
         $usuario_actual= \Auth::user();
         if($usuario_actual->id_tipoUsu!=2){
-            
+            Session::flash('message-error','No tiene suficientes Privilegios para acceder');
+            return redirect()->to('inventario/admin');
+
         }
         return $next($request);
     }

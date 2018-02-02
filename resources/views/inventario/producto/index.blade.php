@@ -27,9 +27,10 @@
                     <table class="table table-striped table-bordered table-condensed table-hover">
                         <thead>
                         <th class="text-center">Opciones</th>
-                        <th >Id</th>
+                        
                         <th>Código</th>
                         <th>Nombre</th>
+                        <th>Unidad Medida</th>
                         <th>Descripción</th>
                         <th class="text-center">Iva</th>
                         <th class="text-right">Costo</th>
@@ -62,9 +63,10 @@
 
                             </td>
 
-                            <td>{{ $pro->id_pro}}</td>
+                            
                             <td>{{ $pro->codigo_pro}}</td>
                             <td>{{ $pro->nombre_pro}}</td>
+                            <td>{{ $pro->nombre_unidMedida }}</td>
                             <td>{{ $pro->descripcion_pro}}</td>
                             <td class="text-center" title="<?php echo $iva; ?>"><?php echo $iva; ?></td>
                             <td class="text-right">{{ $pro->costo_pro}}</td>

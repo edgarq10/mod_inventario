@@ -1,7 +1,5 @@
 @extends ('layouts.admin')
 @section ('contenido')
-
-
 <div class="container-fluid">
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -15,7 +13,6 @@
                                 @include('inventario.usuario.search')
                             </div>
                         </div>-->
-
             <div class="panel panel-primary">
                 <div class="panel-body">
                     <div class="form-group row">
@@ -37,16 +34,9 @@
                                 <input type="text" class="form-control" id="" placeholder="Motivo Ajuste" name="">
                             </div> 
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
             <div class="row">
                 <div class="col-lg-3 col-sm-3 col-md-3 col-sx-12">
                     <div class="form-group">
@@ -61,10 +51,8 @@
                     <div class="form-group">
                         <label for="cedula">Stock</label>
                         <input type="text" name="cedula" class="form-control" id="cedula" required  readonly="" maxlength="13" minlength="10" >
-
                     </div>
                 </div>
-
                 <div class="col-lg-1 col-sm-1 col-md-1 col-sx-12">
                     <div class="form-group">
                         <label for="cedula">IVA</label>
@@ -98,16 +86,7 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
 @endsection

@@ -12,6 +12,7 @@ class BodegueroController extends Controller
 {
    public function __construct() {
         $this->middleware('auth');
+        $this->middleware('usuarioAdmin');
     }
 
     public function index(Request $request) {

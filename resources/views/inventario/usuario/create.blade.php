@@ -141,6 +141,7 @@
                             <label for="estado"></label>
                             <button class="btn btn-primary" disabled="" id="guardar_datos" type="submit">Guardar</button>
                             <button class="btn btn-danger" type="reset">Cancelar</button>
+                            <button class="btn btn-info" type="reset">Limpiar</button>
                         </div>
                     </div>
                     {!!Form::close()!!}		

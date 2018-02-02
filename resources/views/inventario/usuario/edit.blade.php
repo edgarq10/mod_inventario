@@ -20,14 +20,14 @@
 <div class="row">
     <div class="col-lg-5 col-sm-6 col-md-5 col-sx-12">
         <div class="form-group">
-            <label for="name">Nombres y Apellidos</label>
-            <input type="text" name="name" class="form-control" required value="{{ $usuario->name}}" minlength="5" maxlength="50" onkeypress="return esLetra();" placeholder="Escriba sus Nombres y Apellidos">
+            <label for="edit_name">Nombres y Apellidos</label>
+            <input type="text" name="edit_name" class="form-control" required value="{{ $usuario->name}}" minlength="5" maxlength="50" onkeypress="return esLetra();" placeholder="Escriba sus Nombres y Apellidos">
         </div>
     </div>
     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
         <div class="form-group">
-            <label for="tipo">Tipo de Usuario</label>
-            <select class="form-control " id="tipo"  name="tipo">
+            <label for="edit_tipo">Tipo de Usuario</label>
+            <select class="form-control " id="tipo"  name="edit_tipo">
                 <option value="">Seleccione una opcion</option>
                 <option value="1">Administrador</option>
                 <option value="2">Bodeguero</option>
@@ -38,42 +38,42 @@
 <div class="row">
     <div class="col-lg-5 col-sm-6 col-md-5 col-sx-12">
         <div class="form-group">
-            <label for="fechaNac">Fecha de Nacimiento</label>
-            <input type="date" name="fechaNac" class="form-control" required value="{{$usuario->fechaNac}}" placeholder="Fecha de Nacimiento">
+            <label for="edit_fechaNac">Fecha de Nacimiento</label>
+            <input type="date" name="edit_fechaNac" class="form-control" required value="{{$usuario->fechaNac}}" placeholder="Fecha de Nacimiento">
         </div> 
     </div>
     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
         <div class="form-group">
-            <label for="ciudadNac">Ciudad de Nacimiento</label>
-            <input type="text" name="ciudadNac" class="form-control" required value="{{$usuario->ciudadNac}}" maxlength="30" minlength="2" onkeypress="return esLetra();" placeholder="Escriba la ciudad de Nacimiento">
+            <label for="edit_ciudadNac">Ciudad de Nacimiento</label>
+            <input type="text" name="edit_ciudadNac" class="form-control" required value="{{$usuario->ciudadNac}}" maxlength="30" minlength="2" onkeypress="return esLetra();" placeholder="Escriba la ciudad de Nacimiento">
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-5 col-sm-6 col-md-5 col-sx-12">
         <div class="form-group">
-            <label for="direccion">Dirección</label>
-            <input type="text" name="direccion" class="form-control" required value="{{$usuario->direccion}}" maxlength="100" minlength="2"  placeholder="Escriba su Dirección">
+            <label for="edit_direccion">Dirección</label>
+            <input type="text" name="edit_direccion" class="form-control" required value="{{$usuario->direccion}}" maxlength="100" minlength="2"  placeholder="Escriba su Dirección">
         </div>
     </div>
     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
         <div class="form-group">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" name="telefono" class="form-control" required value="{{$usuario->telefono}}" onkeypress="return esDigito()" maxlength="7" minlength="10" placeholder="Escriba su número de teléfono">
+            <label for="edit_telefono">Teléfono</label>
+            <input type="tel" name="edit_telefono" class="form-control" required value="{{$usuario->telefono}}" onkeypress="return esDigito()" maxlength="7" minlength="10" placeholder="Escriba su número de teléfono">
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-5 col-sm-6 col-md-5 col-sx-12">
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" required value="{{ $usuario->email}}" maxlength="50" class="form-control" placeholder="Email...">
+            <label for="edit_email">Email</label>
+            <input type="email" name="edit_email" required value="{{ $usuario->email}}" maxlength="50" class="form-control" placeholder="Email...">
         </div>
     </div>
     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
         <div class="form-group">
-            <label for="estado">Seleccione el estado</label>
-            <select class="form-control "  id="estado" required="" name="estado">
+            <label for="edit_estado">Seleccione el estado</label>
+            <select class="form-control "  id="estado" required="" name="edit_estado">
                 <option value="A">Activo</option>
                 <option value="I">Inactivo</option>
             </select>

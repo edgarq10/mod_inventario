@@ -21,6 +21,9 @@ Route::resource('inventario/producto','ProductoController');
 Route::resource('inventario/bodeguero','BodegueroController');
 Route::resource('inventario/ajuste','AjusteController');
 
+
+Route::get('inventario/admin','FrontController@admin');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

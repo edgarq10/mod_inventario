@@ -21,9 +21,7 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
-
             <header class="main-header">
-
                 <!-- Logo -->
                 <a href="index2.html" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -39,12 +37,10 @@
                         <span class="sr-only">Navegación</span>
                     </a>
                     <!-- Navbar Right Menu -->
-                   
+
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            
                             <!-- Messages: style can be found in dropdown.less-->
-
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -57,41 +53,38 @@
                                     }
                                     echo $tipo;
                                     ?>      
-
                                     - <span class="fa fa-user"> {{ Auth::user()->name }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <!-- User image -->
-                                    
                                     <li class="user-header">
-                                        <p>
-                                            <small></small>
-                                        </p>
+                                        <img src="{{asset('img/user.png')}}" class="img-circle" alt="Cinque Terre" width="500" height="500"> 
+<!--                                        <p>
+                                            <small</small>
+                                        </p>-->
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-
                                         <div class="pull-right">
-                                            <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
-                                               onclick="event.preventDefault(); tElementById('logout-form').submit();">
-                                                Salir
+                                            <a href="{{ route('logout') }}" class="btn btn-danger btn-flat" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                                <i class="fa fa-sign-out" ></i>Salir
                                             </a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
                                             </form>
                                         </div>
                                     </li>
-                                    
                                 </ul>
                             </li>
-                           
                         </ul>
                     </div>
-
                 </nav>
             </header>
             <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
+            <?php
+            if ((Auth::user()->id_tipoUsu) == 1) {
+                ?>
+<aside class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
@@ -110,64 +103,112 @@
                                 <li><a href="{{url('inventario/usuario')}}"><i class="fa fa-circle-o"></i> Administración Usuarios</a></li>
                                 <li><a href="{{url('inventario/producto')}}"><i class="fa fa-circle-o"></i> Administración Productos</a></li>
                                 <li><a href="{{url('inventario/bodeguero')}}"><i class="fa fa-circle-o"></i> Administración Bodegueros</a></li>                                                                                                        goria"><i class="fa                                                                                                         fa-circle-o"></i> Administracio                                                                                                        n Productos</a></li>
+                    </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-th"></i>
+                            <span>Gestión</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{url('inventario/ajuste')}}"><i class="fa fa-circle-o"></i> Lista de Ajuste</a></li>
+                            <li><a href="{{url('inventario/ajuste')}}"><i class="fa fa-circle-o"></i> Nuevo Ajuste</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart"></i>
+                            <span>Reportes</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="ventas/venta"><i class="fa fa-circle-o"></i>Consulta stock de producto</a></li>
+                            <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Bodegueros</a></li>
+                            <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Productos con Stock</a></li>
+                            <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Ajustes de Productos</a></li>
+                        </ul>
+                    </li>
 
-                            </ul>
-                        </li>
-
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-th"></i>
-                                <span>Gestión</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="{{url('inventario/ajuste')}}"><i class="fa fa-circle-o"></i> Lista de Ajuste</a></li>
-                                <li><a href="{{url('inventario/ajuste')}}"><i class="fa fa-circle-o"></i> Nuevo Ajuste</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa fa-bar-chart"></i>
-                                <span>Reportes</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="ventas/venta"><i class="fa fa-circle-o"></i>Consulta stock de producto</a></li>
-                                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Bodegueros</a></li>
-                                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Productos con Stock</a></li>
-                                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Ajustes de Productos</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                                <small class="label pull-right bg-red">PDF</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                                <small class=                                                                                                                                                                                                        "label pull-right bg-yel                                                                                                                                                                                                        low">IT</small>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-plus-square"></i> <span>Ayuda</span>
+                            <small class="label pull-right bg-red">PDF</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
+                            <small class=                                                                                                                                                                                                        "label pull-right bg-yel                                                                                                                                                                                                        low">IT</small>
+                        </a>
+                    </li>
 
                     </ul>
                 </section>
                 <!-- /.sidebar -->
             </aside>
+                <?php
+            } else if ((Auth::user()->id_tipoUsu) == 2) {
+                ?>
+<aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="header"></li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-barcode"></i>
+                                <span>Productos</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{url('inventario/producto')}}"><i class="fa fa-circle-o"></i> Lista Productos</a></li>
+                                <li><a href="{{url('inventario/producto/create')}}"><i class="fa fa-circle-o"></i> Nuevo Producto</a></li>
+                                                                                                                                   goria"><i class="fa                                                                                                         fa-circle-o"></i> Administracio                                                                                                        n Productos</a></li>
+                    </ul>
+                    </li>
+                 
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart"></i>
+                            <span>Reportes</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="ventas/venta"><i class="fa fa-circle-o"></i>Consulta stock de producto</a></li>
+                            <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Bodegueros</a></li>
+                            <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Productos con Stock</a></li>
+                            <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Reporte de Ajustes de Productos</a></li>
+                        </ul>
+                    </li>
 
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-plus-square"></i> <span>Ayuda</span>
+                            <small class="label pull-right bg-red">PDF</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
+                            <small class=                                                                                                                                                                                                        "label pull-right bg-yel                                                                                                                                                                                                        low">IT</small>
+                        </a>
+                    </li>
 
-
-
-
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+                <?php
+            }
+            ?> 
             <!--Contenido-->
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-
                 <!-- Main content -->
                 <section class="content">
-
                     <div class="row">
                         <div class="col-md-12">
                             <div class="box">
@@ -175,7 +216,6 @@
                                     <h3 class="box-title">Sistema de Inventario</h3>
                                     <div class="box-tools pull-right">
                                         <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-
                                         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                                     </div>
                                 </div>
@@ -184,19 +224,16 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <!--Contenido-->
-                                            
                                             @yield('contenido')
                                             <!--Fin Contenido-->
                                         </div>
                                     </div>
-
                                 </div>
                             </div><!-- /.row -->
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
             </div><!-- /.col -->
         </div><!-- /.row -->
-
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 <!--Fin-Contenido-->

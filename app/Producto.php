@@ -15,6 +15,7 @@ class Producto extends Model
     public $timestamps=false;
     protected $fillable = [
         'codigo_pro',
+        'id_unidMedida ',
         'nombre_pro',
         'descripcion_pro',
         'iva_pro',
