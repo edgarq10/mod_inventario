@@ -1,7 +1,6 @@
 <?php
 
 namespace mod_inventario\Http\Controllers;
-
 use Illuminate\Http\Request;
 use mod_inventario\Http\Requests;
 use mod_inventario\Producto;
@@ -95,13 +94,15 @@ class ProductoController extends Controller {
     }
 
     public function edit($id) {
-        return view("inventario.producto.edit", ["producto" => Producto::findOrFail($id)]);
+        $unidad_medida = DB::table('unidad_medida')->get();
+        
+        return view("inventario.producto.edit", ["producto" => Producto::findOrFail($id)],["unidad_medida" => $unidad_medida]);
     }
 
     public function update(ProductoFormRequest $request, $id) {
         $producto = Producto::findOrFail($id);
 
-        $producto->codigo_pro = $request->get('codigo_pro');
+//        $producto->codigo_pro = $request->get('codigo_pro');
         $producto->nombre_pro = $request->get('nombre_pro');
         $producto->descripcion_pro = $request->get('descripcion_pro');
         $producto->iva_pro = $request->get('iva_pro');

@@ -100,7 +100,21 @@
                                 <option value="I">Inactivo</option>
                             </select>
                         </div>
+                        
+                        
                     </div>
+                     <div class="col-lg-5 col-sm-5 col-md-5 col-sx-12"> 
+                            <div class="form-group">
+                                <label for="u_medida">Unidad Medida</label>
+                                <select class="form-control "  id="u_medida" required="" name="u_medida">
+                                    <option  value="">Seleccione unidad de medida</option>
+                                    @foreach ($unidad_medida as $u_medida)
+                                    <option value="{{$u_medida->id_unidMedida}}">{{$u_medida->nombre_unidMedida }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary" type="submit">Guardar</button>

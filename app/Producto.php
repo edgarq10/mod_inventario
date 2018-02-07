@@ -19,12 +19,13 @@ class Producto extends Model
         'nombre_pro',
         'descripcion_pro',
         'iva_pro',
-        'costo_pro',
+        
         'pvp_pro',
+        'stock_pro',
         'estado_pro',
         
     ];
     protected $guarded = [
-        
+        'costo_pro',
     ];
 }

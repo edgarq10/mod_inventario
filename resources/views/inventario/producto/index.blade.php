@@ -33,6 +33,7 @@
                         <th>Unidad Medida</th>
                         <th>Descripción</th>
                         <th class="text-center">Iva</th>
+                        <th class="text-center">Stock</th>
                         <th class="text-right">Costo</th>
                         <th class="text-right">PVP</th>
                         <th class="text-center">Estado</th>
@@ -69,6 +70,7 @@
                             <td>{{ $pro->nombre_unidMedida }}</td>
                             <td>{{ $pro->descripcion_pro}}</td>
                             <td class="text-center" title="<?php echo $iva; ?>"><?php echo $iva; ?></td>
+                            <td class="text-center">{{ $pro->stock_pro}}</td>
                             <td class="text-right">{{ $pro->costo_pro}}</td>
                             <td class="text-right">{{ $pro->pvp_pro}}</td>
                             <td  title="<?php echo $titleEstado; ?> " class="text-center"><span class=" <?php echo $class;?> "><?php echo $estado; ?></span></td>

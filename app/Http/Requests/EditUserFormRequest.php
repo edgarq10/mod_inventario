@@ -13,7 +13,7 @@ class EditUserFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -33,7 +33,7 @@ class EditUserFormRequest extends FormRequest
             'edit_telefono' => 'required|string|min:7|max:10',
             'edit_tipo' => 'required|string|max:1|',
             'edit_estado' => 'required|string|max:1|',
-            'edit_password' => 'required|string|min:6|',
+//            'edit_password' => 'required|string|min:6|',
         ];
     }
 }

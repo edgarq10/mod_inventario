@@ -44,8 +44,8 @@
     </div>
     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
         <div class="form-group">
-            <label for="edit_ciudadNac">Ciudad de Nacimiento</label>
-            <input type="text" name="edit_ciudadNac" class="form-control" required value="{{$usuario->ciudadNac}}" maxlength="30" minlength="2" onkeypress="return esLetra();" placeholder="Escriba la ciudad de Nacimiento">
+            <label for="edit_ciudadNa">Ciudad de Nacimiento</label>
+            <input type="text" name="edit_ciudadNa" class="form-control" required value="{{$usuario->ciudadNac}}" maxlength="30" minlength="2" onkeypress="return esLetra();" placeholder="Escriba la ciudad de Nacimiento">
         </div>
     </div>
 </div>
@@ -59,7 +59,7 @@
     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">
         <div class="form-group">
             <label for="edit_telefono">Teléfono</label>
-            <input type="tel" name="edit_telefono" class="form-control" required value="{{$usuario->telefono}}" onkeypress="return esDigito()" maxlength="7" minlength="10" placeholder="Escriba su número de teléfono">
+            <input type="tel" name="edit_telefono" class="form-control" required value="{{$usuario->telefono}}" onkeypress="return esDigito()" maxlength="10" minlength="7" placeholder="Escriba su número de teléfono">
         </div>
     </div>
 </div>
@@ -79,16 +79,19 @@
             </select>
         </div>
     </div>
+ 
+
+
 </div>
 <div class="row">
     <div class="col-lg-5 col-sm-5 col-md-5 col-sx-12">
 
-<div class="form-group">
-    <button class="btn btn-primary" type="submit">Guardar</button>
-    <a href="{{url('inventario/usuario')}}" class="btn btn-danger">Cancelar</a>
-</div>
-</div>
-{!!Form::close()!!}		
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            <a href="{{url('inventario/usuario')}}" class="btn btn-danger">Cancelar</a>
+        </div>
+    </div>
+    {!!Form::close()!!}		
 
 </div>
 

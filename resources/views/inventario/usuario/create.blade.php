@@ -57,7 +57,7 @@
                     <div class="col-lg-5 col-sm-6 col-md-5 col-sx-12">
                         <div class="form-group">
                             <label for="name">Nombres y Apellidos</label>
-                            <input type="text" name="name" class="form-control" required value="{{old('nombre')}}" minlength="5" maxlength="50" onkeypress="return esLetra();" placeholder="Escriba sus Nombres y Apellidos">
+                            <input type="text" name="name" class="form-control" required value="{{old('name')}}" minlength="5" maxlength="50" onkeypress="return esLetra();" placeholder="Escriba sus Nombres y Apellidos">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 col-md-4 col-sx-12">

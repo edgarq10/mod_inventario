@@ -21,7 +21,8 @@ class UsuarioController extends Controller {
 
         if ($request) {
             $query = trim($request->get('searchText'));
-            $usuarios = DB::table('users')->where('name', 'LIKE', '%' . $query . '%')
+            $usuarios = DB::table('users')
+                    ->where('name', 'LIKE', '%' . $query . '%')
                     ->orderBy('id', 'asc')
                     ->paginate(7);
             return view('inventario.usuario.index', ["usuarios" => $usuarios,
@@ -58,18 +59,18 @@ class UsuarioController extends Controller {
         return view("inventario.usuario.edit", ["usuario" =>User::findOrFail($id)]);
     }
 
-    public function update(UsuarioFormRequest $request, $id) {
+    public function update(EditUserFormRequest $request, $id) {
         $usuario = User::findOrFail($id);
        
         $usuario->name = $request->get('edit_name');
         $usuario->fechaNac = $request->get('edit_fechaNac');
-        $usuario->ciudadNa = $request->get('edit_ciudadNa');
+        $usuario->ciudadNac = $request->get('edit_ciudadNa');
         $usuario->direccion = $request->get('edit_direccion');
         $usuario->telefono = $request->get('edit_telefono');
-        $usuario->tipo = $request->get('edit_tipo');
+        $usuario->id_tipoUsu = $request->get('edit_tipo');
          $usuario->estado = $request->get('edit_estado');
         $usuario->email = $request->get('edit_email');
-        $usuario->password = $request->get('edit_password');
+//        $usuario->password =($request->get('edit_password'));
         
         $usuario->update();
         return Redirect::to('inventario/usuario');

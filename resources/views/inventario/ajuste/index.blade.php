@@ -1,92 +1,74 @@
 @extends ('layouts.admin')
 @section ('contenido')
+<ul class="breadcrumb">
+    <li><a href="#">Inicio</a></li>
+    <li class="active">Lista de ajustes</li>
+</ul>
+
 <div class="container-fluid">
     <div class="panel panel-info">
         <div class="panel-heading">
             <div class="btn-group pull-right">
-                <a href=""> <button class="btn btn-success"> <i class="fa fa-print"> Imprimir</i></button></a></div>
-            <h4><i class='fa fa-cog'></i> Nuevo Ajuste</h4>
+                <a href="{{url('inventario/ajuste/create')}}"> <button class="btn btn-success"> <i class="fa fa-plus"> Nuevo ajuste</i></button></a></div>
+            <h4><i class='fa fa-barcode'></i> Lista  de ajustes</h4>
         </div>
         <div class="panel-body">
-            <!--            <div class="row">
-                            <div class=" col-md-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                @include('inventario.usuario.search')
-                            </div>
-                        </div>-->
-            <div class="panel panel-primary">
-                <div class="panel-body">
-                    <div class="form-group row">
-                        <div class="col-md-3 col-lg-3">
-                            <div class="input-group">
-                                <span class="input-group-addon">N° Ajuste</span>
-                                <input type="text" class="form-control input-sm" onkeypress="return esDigito();" id="" name="" required=""  placeholder="Número de Ajuste">
-                            </div>
-                        </div>
-                        <div class="col-md-3  ">
-                            <div class="input-group  ">
-                                <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i>Fecha</span>
-                                <input type="date"  class="form-control input-sm" id=""  placeholder="Fecha" required>
-                            </div>
-                        </div>
-                        <div class="col-md-12  ">
-                            <div class="form-group">
-                                <label for="email">Motivo Ajuste:</label>
-                                <input type="text" class="form-control" id="" placeholder="Motivo Ajuste" name="">
-                            </div> 
-                        </div>
-                    </div>
+
+            <div class="row">
+                <div  class="col-lg-8 col-md-8 col-sm-8 col-xs-12 col-md-offset-1">
+
+                    @include('inventario.ajuste.search')
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-lg-3 col-sm-3 col-md-3 col-sx-12">
-                    <div class="form-group">
-                        <label for="tipo_id">Producto</label>
-                        <select class="form-control " id="tipo_id"  name="tipo_id">
-                            <option value="1">Seleccione Un Producto</option>
 
-                        </select>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-condensed table-hover">
+                        <thead>
+                        <th class="text-center">Opciones</th>
+                        <th>Nº</th>
+                        <th>Motivo</th>
+                        <th>Fecha</th>
+                        <th>Estado impresión</th>
+                        
+                        </thead>
+                        @foreach ($ajustes as $ajus)
+                        <?php
+//                        if ($pro->iva_pro == 1) {
+//                            $iva = "Si";
+//                        } else if ($pro->iva_pro == 2) {
+//                            $iva = "No";
+//                        }
+//
+//                        if ($pro->estado_pro == "A") {
+//                            $estado = "Activo";
+//                            $titleEstado = "Activo";
+//                            $class="label label-success";
+//                        } else if ($pro->estado_pro == "I") {
+//                            $estado = "Inactivo";
+//                            $titleEstado = "Inactivo";
+//                            $class="label label-danger";
+//                        }
+                        ?>
+                        <tr>
+                            <td class="text-center">
+                                <a href="{{URL::action('AjusteController@edit',$ajus->id_ajuste)}}"><button class="btn btn-info"><i class="fa fa-pencil"></i></button></a>
+                                <!--<a href="" data-target="#modal-delete-{{$pro->id_pro}}" data-toggle="modal"><button class="btn btn-danger">Cambiar</button></a>-->
+                            </td>
+                            <td>{{ $ajus->numero_ajuste}}</td>
+                            <td>{{ $pro->motivo_ajuste}}</td>
+                            <td>{{ $pro->fecha_ajuste}}</td>
+                            <td  title="<?php echo $titleEstado; ?> " class="text-center"><span class=" <?php echo $class;?> "><?php echo $estado; ?></span></td>
+                        </tr>
+                        @include('inventario.ajuste.modal')
+                        @endforeach
+                    </table>
                 </div>
-                <div class="col-lg-1 col-sm-1 col-md-1 col-sx-12">
-                    <div class="form-group">
-                        <label for="cedula">Stock</label>
-                        <input type="text" name="cedula" class="form-control" id="cedula" required  readonly="" maxlength="13" minlength="10" >
-                    </div>
-                </div>
-                <div class="col-lg-1 col-sm-1 col-md-1 col-sx-12">
-                    <div class="form-group">
-                        <label for="cedula">IVA</label>
-                        <input type="text" name="cedula" class="form-control" id="cedula" required  readonly="" maxlength="13" minlength="10" >
-                    </div>
-                </div>
-
-                <div class="col-lg-1 col-sm-1 col-md-1 col-sx-12">
-                    <div class="form-group">
-                        <label for="cedula">Estado</label>
-                        <input type="text" name="cedula" class="form-control" id="cedula" required  readonly="" maxlength="13" minlength="10" >
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-2 col-md-2 col-sx-12">
-                    <div class="form-group">
-                        <label for="cedula">PVP</label>
-                        <input type="text" name="cedula" class="form-control" id="cedula" required   maxlength="13" minlength="10" >
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-2 col-md-2 col-sx-12">
-                    <div class="form-group">
-                        <label for="cedula">Cantidad</label>
-                        <input type="text" name="cedula" class="form-control" id="cedula" required   maxlength="13" minlength="10" >
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-2 col-md-2 col-sx-12">
-                    <div class="form-group">
-                        <label>Agregar</label>
-                        <button type="button" class="btn btn-success form-control" ><i class="fa fa-cart-plus"></i> Agregar</button>
-
-                    </div>
-                </div>
+                {{$ajustes->render()}}
             </div>
         </div>
     </div>
 </div>
+
 @endsection
